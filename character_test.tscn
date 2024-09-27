@@ -1,8 +1,77 @@
-[gd_scene format=3 uid="uid://c58mgi6lbhled"]
+[gd_scene load_steps=5 format=3 uid="uid://c58mgi6lbhled"]
+
+[ext_resource type="Script" path="res://PlayerMovement.gd" id="1_8qbqi"]
+[ext_resource type="Texture2D" uid="uid://culampgt06wms" path="res://icon.svg" id="1_wuj4c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aon5n"]
+radius = 7.28354
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5rr2"]
+size = Vector2(128, 128)
 
 [node name="CharacterTest" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
 offset_right = 135.0
 offset_bottom = 70.0
-text = "Hi! Leslie here, nothing here yet but this scene will be used to set up the player character and physics. "
+text = "Character testing in progress!"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 800.0
+offset_top = 488.0
+offset_right = 1029.0
+offset_bottom = 558.0
+text = "Left/Right to move 
+Z to climb walls and glide"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(552, 101)
+scale = Vector2(3.29511, 3.01898)
+script = ExtResource("1_8qbqi")
+
+[node name="WingsSprite" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.399034, 0.0982375)
+texture = ExtResource("1_wuj4c")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-1.90735e-06, 0)
+scale = Vector2(0.15625, 0.25)
+texture = ExtResource("1_wuj4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_aon5n")
+
+[node name="LevelGeometry" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LevelGeometry"]
+position = Vector2(416, 224)
+scale = Vector2(4.47999, 0.519999)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelGeometry/StaticBody2D"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_wuj4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelGeometry/StaticBody2D"]
+shape = SubResource("RectangleShape2D_d5rr2")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="LevelGeometry"]
+position = Vector2(938, 1045)
+scale = Vector2(20.12, 0.399999)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelGeometry/StaticBody2D2"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_wuj4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelGeometry/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_d5rr2")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="LevelGeometry"]
+position = Vector2(32, 528)
+scale = Vector2(0.499206, 7.68245)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelGeometry/StaticBody2D3"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_wuj4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelGeometry/StaticBody2D3"]
+shape = SubResource("RectangleShape2D_d5rr2")

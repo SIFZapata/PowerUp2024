@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c58mgi6lbhled"]
+
+[node name="CharacterTest" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 135.0
+offset_bottom = 70.0
+text = "Hi! Leslie here, nothing here yet but this scene will be used to set up the player character and physics. "

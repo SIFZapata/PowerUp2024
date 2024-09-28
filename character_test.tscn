@@ -19,8 +19,8 @@ offset_bottom = 1080.0
 texture = ExtResource("1_35722")
 
 [node name="Three placeholder" type="TextureRect" parent="."]
-offset_left = -6.10352e-05
-offset_right = 272.0
+offset_left = 897.0
+offset_right = 1169.0
 offset_bottom = 1080.0
 texture = ExtResource("2_10bhv")
 

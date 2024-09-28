@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c58mgi6lbhled"]
+[gd_scene load_steps=6 format=3 uid="uid://c58mgi6lbhled"]
 
 [ext_resource type="Script" path="res://PlayerMovement.gd" id="1_8qbqi"]
 [ext_resource type="Texture2D" uid="uid://culampgt06wms" path="res://icon.svg" id="1_wuj4c"]
@@ -8,6 +8,9 @@ radius = 7.28354
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5rr2"]
 size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6duo"]
+size = Vector2(128, 320)
 
 [node name="CharacterTest" type="Node2D"]
 
@@ -25,7 +28,7 @@ text = "Left/Right to move
 Z to climb walls and glide"
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(552, 101)
+position = Vector2(480, 144)
 scale = Vector2(3.29511, 3.01898)
 script = ExtResource("1_8qbqi")
 
@@ -40,6 +43,23 @@ texture = ExtResource("1_wuj4c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CapsuleShape2D_aon5n")
+
+[node name="Label" type="Label" parent="CharacterBody2D"]
+offset_left = -7.28353
+offset_top = -25.5053
+offset_right = 41.7165
+offset_bottom = -2.50534
+scale = Vector2(0.318328, 0.376624)
+text = "State: "
+
+[node name="StaminaLabel" type="Label" parent="CharacterBody2D"]
+offset_left = -7.28351
+offset_top = -34.4488
+offset_right = 41.7165
+offset_bottom = -11.4488
+scale = Vector2(0.318328, 0.376624)
+theme_override_colors/font_color = Color(0.24631, 0.799065, 0.545432, 1)
+text = "Stamina: "
 
 [node name="LevelGeometry" type="Node2D" parent="."]
 
@@ -75,3 +95,38 @@ texture = ExtResource("1_wuj4c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelGeometry/StaticBody2D3"]
 shape = SubResource("RectangleShape2D_d5rr2")
+
+[node name="Windgust_Lift" type="Area2D" parent="."]
+position = Vector2(1336, 856)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Windgust_Lift"]
+shape = SubResource("RectangleShape2D_p6duo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Windgust_Lift"]
+modulate = Color(1, 1, 1, 0.4)
+scale = Vector2(1, 2.52)
+texture = ExtResource("1_wuj4c")
+
+[node name="Windgust_Bounce" type="Area2D" parent="."]
+position = Vector2(744, 976)
+scale = Vector2(0.680317, 0.287048)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Windgust_Bounce"]
+shape = SubResource("RectangleShape2D_p6duo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Windgust_Bounce"]
+modulate = Color(1, 0.411765, 0, 0.4)
+scale = Vector2(1, 2.52)
+texture = ExtResource("1_wuj4c")
+
+[node name="Spikes" type="Area2D" parent="."]
+position = Vector2(1824, 984)
+scale = Vector2(0.5, 0.211664)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes"]
+shape = SubResource("RectangleShape2D_p6duo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Spikes"]
+modulate = Color(0.886275, 0, 0.403922, 1)
+scale = Vector2(1, 2.52)
+texture = ExtResource("1_wuj4c")

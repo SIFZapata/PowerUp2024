@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c58mgi6lbhled"]
+[gd_scene load_steps=7 format=3 uid="uid://c58mgi6lbhled"]
 
 [ext_resource type="Script" path="res://PlayerMovement.gd" id="1_8qbqi"]
+[ext_resource type="Texture2D" uid="uid://btgp0iv0r4lq2" path="res://Placeholders/Background Place holder.png" id="1_35722"]
 [ext_resource type="Texture2D" uid="uid://culampgt06wms" path="res://icon.svg" id="1_wuj4c"]
+[ext_resource type="Texture2D" uid="uid://ctkq62d63rf5n" path="res://Placeholders/Tree place holder.png" id="2_10bhv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aon5n"]
 radius = 7.28354
@@ -10,6 +12,17 @@ radius = 7.28354
 size = Vector2(128, 128)
 
 [node name="CharacterTest" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_35722")
+
+[node name="Three placeholder" type="TextureRect" parent="."]
+offset_left = -6.10352e-05
+offset_right = 272.0
+offset_bottom = 1080.0
+texture = ExtResource("2_10bhv")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 135.0
